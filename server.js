@@ -6,15 +6,15 @@ const app = express();
 const counter = {
   count: 0
 }
-app.get('api/counter', (req,res) => {
+app.get('/api/counter', (req,res) => {
   res.json(counter);
   res.end();
 })
-app.get('api/counter/increment', (req,res) => {
+app.get('/api/counter/increment', (req,res) => {
   ++counter.count;
   res.end();
 })
-app.get('api/counter/decrement', (req,res) => {
+app.get('/api/counter/decrement', (req,res) => {
   --counter.count;
   res.end();
 })
