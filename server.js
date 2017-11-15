@@ -4,19 +4,23 @@ const app = express();
 
 
 const counter = {
-  count: 0
+ count: 0
 }
-app.get('/api/counter', (req,res) => {
-  res.json(counter);
-  res.end();
+
+app.get('/api/counter', (req,res)=>{
+ res.json(counter);
 })
-app.get('/api/counter/increment', (req,res) => {
-  ++counter.count;
-  res.end();
+app.get('/api/counter/inc', (req,res)=>{
+ ++counter.count;
+ res.end();
 })
-app.get('/api/counter/decrement', (req,res) => {
-  --counter.count;
-  res.end();
+app.get('/api/counter/dec', (req,res)=>{
+ --counter.count;
+ res.end();
+})
+
+app.get('*', (req, res) =>{
+ res.redirect('/api/counter');
 })
 
 app.listen(PORT, () => {
